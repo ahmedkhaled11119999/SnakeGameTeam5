@@ -1,0 +1,19 @@
+[Abrar]:
+1-HTML
+2-createBoard()
+3-startGame()
+4-randomApple()
+5-replay()
+
+[Aya]:
+1-eatApple()
+2-control()
+
+[Ahmed]:
+1-checkForHits()
+2-moveSnake()
+
+[كلنا]:
+1-Code Integration [تجميع الكود]
+2-CSS
+3-Test all cases
