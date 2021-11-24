@@ -1,9 +1,9 @@
 [Abrar]:
 1-HTML
 2-createBoard() done
-3-startGame()
+3-startGame()  done
 4-randomApple() done
-5-replay()
+5-replay()done
 
 [Aya]:
 1-eatApple()
