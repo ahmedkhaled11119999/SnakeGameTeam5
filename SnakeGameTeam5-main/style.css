@@ -1,65 +1,80 @@
+* {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
 body {
-    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  font-family: "Courier New", Courier, monospace;
+  color: white;
 }
 
 .container {
-    text-align: center;
+  text-align: center;
 }
 
 h1 {
-    color: rgb(176, 252, 255);
-
+  color: rgb(176, 252, 255);
 }
 
-.displayScore{
-    color: rgb(176, 252, 255);
+.displayScore {
+  color: rgb(176, 252, 255);
 }
 
-.currentScore{
-    font-weight: bold;
-    font-size: larger;
+.currentScore {
+  font-weight: bold;
+  font-size: larger;
 }
 
 .grid {
-    width: 400px;
-    height: 400px;
-    border-width: 6px;
-    border-style: solid;
-    border-image: linear-gradient(to right, rgb(218, 0, 65) 0%, rgb(72, 29, 190) 35%,silver 100%);
-    border-image-slice: 1;
-    margin: 20px auto;
-    display: flex;
-    flex-wrap: wrap;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
+  width: 400px;
+  height: 400px;
+  border-width: 6px;
+  border-style: solid;
+  border-image: linear-gradient(
+    to right,
+    rgb(218, 0, 65) 0%,
+    rgb(72, 29, 190) 35%,
+    silver 100%
+  );
+  border-image-slice: 1;
+  margin: 20px auto;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  font-size: 35px;
+  flex-wrap: wrap;
 }
 
 .grid div {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
 }
 .playAgain {
-    padding: 10px;
-    background-color: rgb(176, 252, 255);
-    color: rgb(255, 65, 208);
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bolder;
-    border-radius: 4px;
+  display: none;
+  padding: 10px;
+  background-color: rgb(176, 252, 255);
+  color: rgb(255, 65, 208);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  border-radius: 4px;
 }
 
 .playAgain:hover {
-    background-color: rgb(255, 65, 208);
-    color: rgb(176, 252, 255);
+  background-color: rgb(255, 65, 208);
+  color: rgb(176, 252, 255);
 }
 
 .snake {
-    background: blue;
+  background: rgb(94, 219, 188);
 }
 
 .apple {
-    background: yellow;
-    border-radius: 20px;
+  background: orange;
+  border-radius: 20px;
 }
