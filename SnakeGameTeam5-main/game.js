@@ -100,3 +100,28 @@ function replay() {
   startGame();
   playAgainButton.style.display = "none";
 }
+
+function eatApple(squares, tail) {
+  if (squares[currentSnake[0]].classList.contains("apple")) {
+    squares[currentSnake[0]].classList.remove("apple");
+    squares[tail].classList.add("snake"); //why he adds snake?
+    currentSnake.push(tail);
+    randomApple(squares);
+    score++;
+    currentScore.innerHTML = score;
+    clearInterval(interval);
+    intervalTime = intervalTime * speed;
+    interval = setInterval(moveOutput, intervalTime);
+  }
+}
+function control(e) {
+  if (e.keyCode === 39) {
+    direction = directions.RIGHT; // right
+  } else if (e.keyCode === 38) {
+    direction = directions.TOP; //if we press the up arrow, the snake will go ten divs up
+  } else if (e.keyCode === 37) {
+    direction = directions.LEFT; // left, the snake will go left one div
+  } else if (e.keyCode === 40) {
+    direction = directions.BOTTOM; // down the snake head will instantly appear 10 divs below from the current div
+  }
+}

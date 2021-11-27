@@ -71,10 +71,17 @@ h1 {
 }
 
 .snake {
-  background: rgb(94, 219, 188);
+  background: rgb(148, 94, 219);
+  border-radius: 20px;
 }
 
 .apple {
-  background: orange;
-  border-radius: 20px;
+  background-image: url("media/images/apple1.png");
+  /* margin: 0 auto; */
+  /* background-position: center; */
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* background-clip: padding-box; */
+  width: 40px;
+  height: 40px;
 }
