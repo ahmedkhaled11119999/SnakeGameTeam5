@@ -34,7 +34,7 @@ h1 {
 }
 
 .highestScore {
-  color: rgb(218, 0, 65);
+  color: rgb(22, 235, 40);
 }
 
 .grid {
@@ -71,9 +71,20 @@ h1 {
   border: 0px transparent none;
 }
 
-.playAgain:hover {
+.playAgain:hover,
+.pause:hover {
   background-color: rgb(255, 65, 208);
   color: rgb(176, 252, 255);
+}
+
+.pause {
+  padding: 10px;
+  background-color: rgb(176, 252, 255);
+  color: rgb(255, 65, 208);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  border-radius: 4px;
+  border: 0px transparent none;
 }
 
 .snake {

@@ -1,8 +1,10 @@
 let grid = document.querySelector(".grid");
 let playAgainButton = document.querySelector(".playAgain");
+let pauseButton = document.querySelector(".pause");
 let currentScore = document.querySelector(".currentScore");
 let highScore = document.querySelector(".highestScore");
 let userNameHtml = document.querySelectorAll(".userName");
+let isPaused = false;
 let urlString = window.location.href;
 let nickName = "";
 let appleIndex = 0;
@@ -28,14 +30,24 @@ document.addEventListener("DOMContentLoaded", function () {
   userNameHtml.forEach((uName) => {
     uName.innerHTML = nickName;
   });
-
   highScore.innerHTML = highestScore;
   document.addEventListener("keyup", control);
   createBoard();
   startGame();
   playAgainButton.addEventListener("click", replay);
+  pauseButton.addEventListener("click", toggleGameStatus);
 });
 
+function toggleGameStatus() {
+  if (isPaused) {
+    isPaused = false;
+  } else {
+    isPaused = true;
+  }
+  pauseButton.innerHTML = isPaused ? "Resume" : "Pause";
+
+  return isPaused;
+}
 function getUserData() {
   if (localStorage.getItem(nickName) !== null) {
     highestScore = localStorage.getItem(nickName);
@@ -62,11 +74,11 @@ function randomApple(squares) {
   do {
     appleIndex = Math.floor(Math.random() * squares.length);
   } while (squares[appleIndex].classList.contains("snake"));
-  debugger;
   squares[appleIndex].classList.add("apple");
 }
 function startGame() {
   let squares = document.querySelectorAll(".grid div");
+  pauseButton.style.display = "inline-block";
   randomApple(squares);
   direction = 1;
   score = 0;
@@ -82,13 +94,16 @@ function moveOutput() {
   if (checkForHits(squares)) {
     gameOver(squares, interval);
   } else {
-    moveSnake(squares);
+    if (!isPaused) {
+      moveSnake(squares);
+    }
   }
 }
 
 function gameOver(squares, interval) {
   //saves final highest score to local storage
   updateUserHighestScore();
+  pauseButton.style.display = "none";
   grid.innerHTML = "";
   grid.style.backgroundColor = "#000000";
   grid.innerHTML = "GAME OVER &#128533;";
