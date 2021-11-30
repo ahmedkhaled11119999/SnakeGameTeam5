@@ -8,7 +8,6 @@ let soundBtn = document.querySelector("#soundBtn");
 let userNameHtml = document.querySelectorAll(".userName");
 let isPaused = false;
 let soundOn = true;
-let urlString = window.location.href;
 let nickName = "";
 let appleIndex = 0;
 let currentSnake = [2, 1, 0];
@@ -26,8 +25,10 @@ const directions = {
   BOTTOM: 10,
 };
 
+//function calls
 document.addEventListener("DOMContentLoaded", function () {
-  let url = new URL(urlString);
+  let url = new URL(window.location.href);
+  console.log(url);
   nickName = url.searchParams.get("nickname");
   getUserData();
   userNameHtml.forEach((uName) => {
@@ -42,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
   soundBtn.addEventListener("click", toggleSoundStatus);
 });
 
+//function defenition
 function toggleGameStatus() {
   if (isPaused) {
     isPaused = false;
