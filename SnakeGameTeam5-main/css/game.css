@@ -1,0 +1,121 @@
+* {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+body {
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  color: rgb(176, 252, 255);
+}
+
+.displayScore {
+  color: rgb(176, 252, 255);
+}
+
+.currentScore,
+.highestScore {
+  font-weight: bold;
+  font-size: larger;
+}
+
+.highestScore {
+  color: rgb(22, 235, 40);
+}
+
+.grid {
+  width: 400px;
+  height: 400px;
+  border-width: 6px;
+  border-style: solid;
+  border-image: linear-gradient(
+    to right,
+    rgb(218, 0, 65) 0%,
+    rgb(72, 29, 190) 35%,
+    silver 100%
+  );
+  border-image-slice: 1;
+  margin: 20px auto;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  font-size: 35px;
+  flex-wrap: wrap;
+}
+
+.grid div {
+  width: 40px;
+  height: 40px;
+}
+.playAgain {
+  display: none;
+  line-height: 25px;
+  padding: 10px;
+  background-color: rgb(176, 252, 255);
+  color: rgb(255, 65, 208);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  border-radius: 4px;
+  border: 0px transparent none;
+}
+
+.playAgain:hover,
+.pause:hover {
+  background-color: rgb(255, 65, 208);
+  color: rgb(176, 252, 255);
+  cursor: pointer;
+}
+
+.pause {
+  line-height: 25px;
+  padding: 10px;
+  background-color: rgb(176, 252, 255);
+  color: rgb(255, 65, 208);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  border-radius: 4px;
+  border: 0px transparent none;
+}
+#soundBtn {
+  padding: 10px;
+  line-height: 25px;
+  background-color: rgb(176, 252, 255);
+  color: rgb(255, 65, 208);
+  border-radius: 4px;
+  border: 0px transparent none;
+}
+
+#soundBtn:hover {
+  background-color: rgb(255, 65, 208);
+  color: rgb(176, 252, 255);
+  cursor: pointer;
+}
+
+/* #buttons {
+  height: 50px;
+} */
+.snake {
+  background: rgb(148, 94, 219);
+  border-radius: 20px;
+}
+
+.apple {
+  background-image: url("../media/images/apple1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+}

@@ -5,14 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome to Snake Game!</title>
-    <link rel="stylesheet" href="welcome.css" />
   </head>
   <body>
-    <h3>
-      Welcome to Snake Game Powered by ITI !<br />
-      Enter your Nickname
-    </h3>
-    <form action="index.html" method="get">
+    <div id="welcome">
+      Welcome to Snake Game Powered by ITI!<br />
+      <strong>Enter your Nickname</strong>
+    </div>
+    <form action="game.html" method="get">
       <input
         type="text"
         placeholder="Your Nickname Here"
@@ -20,11 +19,12 @@
         id="txt-input"
         class="themeForm"
       />
-      <div id="errorMsg">Please enter your Nickname to continue!</div>
+      <div id="errorMsg">*Please enter your Nickname to continue!</div>
       <div>
         <input type="submit" value="Play!" id="play" class="themeForm" />
       </div>
     </form>
-    <script src="welcome.js"></script>
+    <link rel="stylesheet" href="css/welcome.css" />
+    <script src="js/welcome.js"></script>
   </body>
 </html>

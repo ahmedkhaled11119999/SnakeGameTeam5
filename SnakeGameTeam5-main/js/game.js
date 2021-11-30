@@ -3,8 +3,11 @@ let playAgainButton = document.querySelector(".playAgain");
 let pauseButton = document.querySelector(".pause");
 let currentScore = document.querySelector(".currentScore");
 let highScore = document.querySelector(".highestScore");
+let soundIcon = document.querySelector("#soundIcon");
+let soundBtn = document.querySelector("#soundBtn");
 let userNameHtml = document.querySelectorAll(".userName");
 let isPaused = false;
+let soundOn = true;
 let urlString = window.location.href;
 let nickName = "";
 let appleIndex = 0;
@@ -36,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
   startGame();
   playAgainButton.addEventListener("click", replay);
   pauseButton.addEventListener("click", toggleGameStatus);
+  soundBtn.addEventListener("click", toggleSoundStatus);
 });
 
 function toggleGameStatus() {
@@ -45,8 +49,16 @@ function toggleGameStatus() {
     isPaused = true;
   }
   pauseButton.innerHTML = isPaused ? "Resume" : "Pause";
+}
 
-  return isPaused;
+function toggleSoundStatus() {
+  if (soundOn) {
+    soundOn = false;
+  } else {
+    soundOn = true;
+  }
+  soundIcon.classList.toggle("fa-volume-up");
+  soundIcon.classList.toggle("fa-volume-off");
 }
 function getUserData() {
   if (localStorage.getItem(nickName) !== null) {
@@ -110,8 +122,10 @@ function gameOver(squares, interval) {
   grid.style.color = "#FFFFFF";
   grid.style.justifyContent = "center";
   grid.style.alignItems = "center";
-  var audio = new Audio("media/sounds/gameover.wav");
-  audio.play();
+  if (soundOn) {
+    var audio = new Audio("media/sounds/gameover.wav");
+    audio.play();
+  }
   playAgainButton.style.display = "inline-block";
   clearInterval(interval);
 }
@@ -147,6 +161,10 @@ function replay() {
 
 function eatApple(squares, tail) {
   if (squares[currentSnake[0]].classList.contains("apple")) {
+    if (soundOn) {
+      var audio = new Audio("media/sounds/eat_apple.mp3");
+      audio.play();
+    }
     squares[currentSnake[0]].classList.remove("apple");
     squares[tail].classList.add("snake");
     currentSnake.push(tail);

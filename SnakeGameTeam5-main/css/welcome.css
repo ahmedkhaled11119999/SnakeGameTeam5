@@ -1,17 +1,13 @@
 body {
   user-select: none;
   text-align: center;
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(9, 9, 121, 1) 35%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  background: rgb(7, 0, 138);
   font-family: "Courier New", Courier, monospace;
   color: white;
 }
-h3 {
+#welcome {
   color: rgb(176, 252, 255);
+  font-size: medium;
 }
 
 .themeForm {
@@ -31,19 +27,21 @@ h3 {
 #play:hover {
   background-color: rgb(255, 65, 208);
   color: rgb(176, 252, 255);
+  cursor: pointer;
 }
 
 #txt-input {
   color: rgb(255, 65, 208);
   text-align: center;
   border: 3px rgb(255, 65, 208) solid;
+  margin: 7px;
 }
+
 #txt-input:focus {
   outline: none;
 }
 
 #errorMsg {
   display: none;
-  color: red;
-  padding: 5px;
+  color: rgb(255, 46, 46);
 }
