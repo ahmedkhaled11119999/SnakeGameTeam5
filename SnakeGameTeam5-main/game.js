@@ -1,12 +1,17 @@
 let grid = document.querySelector(".grid");
 let playAgainButton = document.querySelector(".playAgain");
 let currentScore = document.querySelector(".currentScore");
+let highScore = document.querySelector(".highestScore");
+let userNameHtml = document.querySelectorAll(".userName");
+let urlString = window.location.href;
+let nickName = "";
 let appleIndex = 0;
 let currentSnake = [2, 1, 0];
 let direction = 1;
 let width = 10;
+let highestScore = 0;
 let score = 0;
-let speed = 0.8;
+let speed = 0.95;
 let intervalTime = 0;
 let interval = 0;
 const directions = {
@@ -17,11 +22,34 @@ const directions = {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
+  let url = new URL(urlString);
+  nickName = url.searchParams.get("nickname");
+  getUserData();
+  userNameHtml.forEach((uName) => {
+    uName.innerHTML = nickName;
+  });
+
+  highScore.innerHTML = highestScore;
   document.addEventListener("keyup", control);
   createBoard();
   startGame();
   playAgainButton.addEventListener("click", replay);
 });
+
+function getUserData() {
+  if (localStorage.getItem(nickName) !== null) {
+    highestScore = localStorage.getItem(nickName);
+  } else {
+    //set a storage for new users
+    localStorage.setItem(nickName, highestScore);
+  }
+}
+
+function updateUserHighestScore() {
+  if (localStorage.getItem(nickName) !== null) {
+    localStorage.setItem(nickName, highestScore);
+  }
+}
 
 function createBoard() {
   for (let i = 0; i < 100; i++) {
@@ -34,9 +62,8 @@ function randomApple(squares) {
   do {
     appleIndex = Math.floor(Math.random() * squares.length);
   } while (squares[appleIndex].classList.contains("snake"));
-  {
-    squares[appleIndex].classList.add("apple");
-  }
+  debugger;
+  squares[appleIndex].classList.add("apple");
 }
 function startGame() {
   let squares = document.querySelectorAll(".grid div");
@@ -60,6 +87,8 @@ function moveOutput() {
 }
 
 function gameOver(squares, interval) {
+  //saves final highest score to local storage
+  updateUserHighestScore();
   grid.innerHTML = "";
   grid.style.backgroundColor = "#000000";
   grid.innerHTML = "GAME OVER &#128533;";
@@ -104,10 +133,15 @@ function replay() {
 function eatApple(squares, tail) {
   if (squares[currentSnake[0]].classList.contains("apple")) {
     squares[currentSnake[0]].classList.remove("apple");
-    squares[tail].classList.add("snake"); //why he adds snake?
+    squares[tail].classList.add("snake");
     currentSnake.push(tail);
     randomApple(squares);
     score++;
+    //update highest score in html
+    if (score >= highestScore) {
+      highestScore = score;
+      highScore.innerHTML = highestScore;
+    }
     currentScore.innerHTML = score;
     clearInterval(interval);
     intervalTime = intervalTime * speed;

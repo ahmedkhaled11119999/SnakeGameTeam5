@@ -5,13 +5,13 @@
   "manifest_version": 2,
   "incognito": "split",
   "browser_action": {
-    "default_popup": "index.html",
+    "default_popup": "welcome.html",
     "default_title": "Click to start playing Snake Game"
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["game.js"]
+      "js": ["welcome.js", "game.js"]
     }
   ],
   "icons": {

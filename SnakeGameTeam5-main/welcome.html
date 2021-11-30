@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Snake Game!</title>
+    <link rel="stylesheet" href="welcome.css" />
+  </head>
+  <body>
+    <h3>
+      Welcome to Snake Game Powered by ITI !<br />
+      Enter your Nickname
+    </h3>
+    <form action="index.html" method="get">
+      <input
+        type="text"
+        placeholder="Your Nickname Here"
+        name="nickname"
+        id="txt-input"
+        class="themeForm"
+      />
+      <div id="errorMsg">Please enter your Nickname to continue!</div>
+      <div>
+        <input type="submit" value="Play!" id="play" class="themeForm" />
+      </div>
+    </form>
+    <script src="welcome.js"></script>
+  </body>
+</html>

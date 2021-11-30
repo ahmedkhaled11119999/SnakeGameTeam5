@@ -1,0 +1,49 @@
+body {
+  user-select: none;
+  text-align: center;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+}
+h3 {
+  color: rgb(176, 252, 255);
+}
+
+.themeForm {
+  padding: 10px;
+  font-family: "Courier New", Courier, monospace;
+  border-radius: 4px;
+  border: 0px transparent none;
+}
+
+#play {
+  background-color: rgb(176, 252, 255);
+  color: rgb(255, 65, 208);
+  font-weight: bolder;
+  margin-top: 5px;
+}
+
+#play:hover {
+  background-color: rgb(255, 65, 208);
+  color: rgb(176, 252, 255);
+}
+
+#txt-input {
+  color: rgb(255, 65, 208);
+  text-align: center;
+  border: 3px rgb(255, 65, 208) solid;
+}
+#txt-input:focus {
+  outline: none;
+}
+
+#errorMsg {
+  display: none;
+  color: red;
+  padding: 5px;
+}
